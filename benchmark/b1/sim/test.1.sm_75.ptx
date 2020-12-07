@@ -1,0 +1,311 @@
+
+
+
+
+
+
+
+
+.version 6.4
+.target sm_75
+.address_size 64
+
+
+
+.visible .entry _Z12wmma_examplePjS_Piiii(
+.param .u64 _Z12wmma_examplePjS_Piiii_param_0,
+.param .u64 _Z12wmma_examplePjS_Piiii_param_1,
+.param .u64 _Z12wmma_examplePjS_Piiii_param_2,
+.param .u32 _Z12wmma_examplePjS_Piiii_param_3,
+.param .u32 _Z12wmma_examplePjS_Piiii_param_4,
+.param .u32 _Z12wmma_examplePjS_Piiii_param_5
+)
+{
+.reg .pred %p<10>;
+.reg .b32 %r<158>;
+.reg .b64 %rd<37>;
+
+
+ld.param.u64 %rd4, [_Z12wmma_examplePjS_Piiii_param_0];
+ld.param.u64 %rd5, [_Z12wmma_examplePjS_Piiii_param_1];
+ld.param.u64 %rd3, [_Z12wmma_examplePjS_Piiii_param_2];
+ld.param.u32 %r41, [_Z12wmma_examplePjS_Piiii_param_3];
+ld.param.u32 %r37, [_Z12wmma_examplePjS_Piiii_param_4];
+ld.param.u32 %r38, [_Z12wmma_examplePjS_Piiii_param_5];
+cvta.to.global.u64 %rd1, %rd5;
+cvta.to.global.u64 %rd2, %rd4;
+mov.u32 %r42, %ntid.x;
+mov.u32 %r43, %ctaid.x;
+mov.u32 %r44, %tid.x;
+mad.lo.s32 %r45, %r42, %r43, %r44;
+mov.u32 %r46, WARP_SZ;
+div.u32 %r47, %r45, %r46;
+mov.u32 %r48, %ntid.y;
+mov.u32 %r49, %ctaid.y;
+mov.u32 %r50, %tid.y;
+mad.lo.s32 %r51, %r48, %r49, %r50;
+shl.b32 %r1, %r47, 3;
+shl.b32 %r2, %r51, 3;
+setp.lt.s32	%p2, %r1, %r41;
+setp.lt.s32	%p3, %r2, %r37;
+and.pred %p1, %p2, %p3;
+mov.u32 %r138, 0;
+setp.lt.s32	%p4, %r38, 1;
+mov.u32 %r139, %r138;
+@%p4 bra BB0_19;
+
+mul.lo.s32 %r62, %r1, %r38;
+shr.s32 %r63, %r62, 31;
+shr.u32 %r64, %r63, 27;
+add.s32 %r65, %r62, %r64;
+shr.s32 %r3, %r65, 5;
+mul.lo.s32 %r66, %r2, %r37;
+shr.s32 %r67, %r66, 31;
+shr.u32 %r68, %r67, 27;
+add.s32 %r69, %r66, %r68;
+shr.s32 %r4, %r69, 5;
+add.s32 %r70, %r38, -1;
+shr.u32 %r71, %r70, 7;
+add.s32 %r5, %r71, 1;
+and.b32 %r61, %r5, 3;
+mov.u32 %r138, 0;
+setp.eq.s32	%p5, %r61, 0;
+@%p5 bra BB0_2;
+
+setp.eq.s32	%p6, %r61, 1;
+@%p6 bra BB0_4;
+bra.uni BB0_5;
+
+BB0_4:
+mov.u32 %r139, %r138;
+mov.u32 %r145, %r138;
+bra.uni BB0_12;
+
+BB0_2:
+mov.u32 %r139, %r138;
+mov.u32 %r150, %r138;
+bra.uni BB0_15;
+
+BB0_5:
+setp.eq.s32	%p7, %r61, 2;
+@%p7 bra BB0_6;
+bra.uni BB0_7;
+
+BB0_6:
+mov.u32 %r139, %r138;
+mov.u32 %r140, %r138;
+bra.uni BB0_9;
+
+BB0_7:
+mov.u32 %r140, 128;
+mov.u32 %r139, %r138;
+@!%p1 bra BB0_9;
+bra.uni BB0_8;
+
+BB0_8:
+mul.wide.s32 %rd6, %r3, 4;
+add.s64 %rd7, %rd2, %rd6;
+mov.u32 %r76, 0;
+wmma.load.a.sync.aligned.row.m8n8k128.global.b1 {%r77}, [%rd7], %r38;
+mul.wide.s32 %rd8, %r4, 4;
+add.s64 %rd9, %rd1, %rd8;
+wmma.load.b.sync.aligned.col.m8n8k128.global.b1 {%r78}, [%rd9], %r37;
+wmma.mma.xor.popc.sync.aligned.row.col.m8n8k128.s32.b1.b1.s32 {%r138, %r139}, {%r77}, {%r78}, {%r76, %r76};
+
+BB0_9:
+@!%p1 bra BB0_11;
+bra.uni BB0_10;
+
+BB0_10:
+shr.u32 %r79, %r140, 5;
+add.s32 %r80, %r79, %r3;
+mul.wide.s32 %rd10, %r80, 4;
+add.s64 %rd11, %rd2, %rd10;
+wmma.load.a.sync.aligned.row.m8n8k128.global.b1 {%r81}, [%rd11], %r38;
+add.s32 %r82, %r4, %r79;
+mul.wide.s32 %rd12, %r82, 4;
+add.s64 %rd13, %rd1, %rd12;
+wmma.load.b.sync.aligned.col.m8n8k128.global.b1 {%r83}, [%rd13], %r37;
+wmma.mma.xor.popc.sync.aligned.row.col.m8n8k128.s32.b1.b1.s32 {%r138, %r139}, {%r81}, {%r83}, {%r138, %r139};
+
+BB0_11:
+add.s32 %r145, %r140, 128;
+
+BB0_12:
+@!%p1 bra BB0_14;
+bra.uni BB0_13;
+
+BB0_13:
+shr.s32 %r84, %r145, 31;
+shr.u32 %r85, %r84, 27;
+add.s32 %r86, %r145, %r85;
+shr.s32 %r87, %r86, 5;
+add.s32 %r88, %r87, %r3;
+mul.wide.s32 %rd14, %r88, 4;
+add.s64 %rd15, %rd2, %rd14;
+wmma.load.a.sync.aligned.row.m8n8k128.global.b1 {%r89}, [%rd15], %r38;
+add.s32 %r90, %r4, %r87;
+mul.wide.s32 %rd16, %r90, 4;
+add.s64 %rd17, %rd1, %rd16;
+wmma.load.b.sync.aligned.col.m8n8k128.global.b1 {%r91}, [%rd17], %r37;
+wmma.mma.xor.popc.sync.aligned.row.col.m8n8k128.s32.b1.b1.s32 {%r138, %r139}, {%r89}, {%r91}, {%r138, %r139};
+
+BB0_14:
+add.s32 %r150, %r145, 128;
+
+BB0_15:
+setp.lt.u32	%p8, %r5, 4;
+@%p8 bra BB0_19;
+
+BB0_16:
+@!%p1 bra BB0_18;
+bra.uni BB0_17;
+
+BB0_17:
+shr.s32 %r92, %r150, 31;
+shr.u32 %r93, %r92, 27;
+add.s32 %r94, %r150, %r93;
+shr.s32 %r95, %r94, 5;
+add.s32 %r96, %r95, %r3;
+mul.wide.s32 %rd18, %r96, 4;
+add.s64 %rd19, %rd2, %rd18;
+wmma.load.a.sync.aligned.row.m8n8k128.global.b1 {%r97}, [%rd19], %r38;
+add.s32 %r98, %r4, %r95;
+mul.wide.s32 %rd20, %r98, 4;
+add.s64 %rd21, %rd1, %rd20;
+wmma.load.b.sync.aligned.col.m8n8k128.global.b1 {%r99}, [%rd21], %r37;
+wmma.mma.xor.popc.sync.aligned.row.col.m8n8k128.s32.b1.b1.s32 {%r100, %r101}, {%r97}, {%r99}, {%r138, %r139};
+add.s32 %r102, %r150, 128;
+shr.s32 %r103, %r102, 31;
+shr.u32 %r104, %r103, 27;
+add.s32 %r105, %r102, %r104;
+shr.s32 %r106, %r105, 5;
+add.s32 %r107, %r106, %r3;
+mul.wide.s32 %rd22, %r107, 4;
+add.s64 %rd23, %rd2, %rd22;
+wmma.load.a.sync.aligned.row.m8n8k128.global.b1 {%r108}, [%rd23], %r38;
+add.s32 %r109, %r4, %r106;
+mul.wide.s32 %rd24, %r109, 4;
+add.s64 %rd25, %rd1, %rd24;
+wmma.load.b.sync.aligned.col.m8n8k128.global.b1 {%r110}, [%rd25], %r37;
+wmma.mma.xor.popc.sync.aligned.row.col.m8n8k128.s32.b1.b1.s32 {%r111, %r112}, {%r108}, {%r110}, {%r100, %r101};
+add.s32 %r113, %r150, 256;
+shr.s32 %r114, %r113, 31;
+shr.u32 %r115, %r114, 27;
+add.s32 %r116, %r113, %r115;
+shr.s32 %r117, %r116, 5;
+add.s32 %r118, %r117, %r3;
+mul.wide.s32 %rd26, %r118, 4;
+add.s64 %rd27, %rd2, %rd26;
+wmma.load.a.sync.aligned.row.m8n8k128.global.b1 {%r119}, [%rd27], %r38;
+add.s32 %r120, %r4, %r117;
+mul.wide.s32 %rd28, %r120, 4;
+add.s64 %rd29, %rd1, %rd28;
+wmma.load.b.sync.aligned.col.m8n8k128.global.b1 {%r121}, [%rd29], %r37;
+wmma.mma.xor.popc.sync.aligned.row.col.m8n8k128.s32.b1.b1.s32 {%r122, %r123}, {%r119}, {%r121}, {%r111, %r112};
+add.s32 %r124, %r150, 384;
+shr.s32 %r125, %r124, 31;
+shr.u32 %r126, %r125, 27;
+add.s32 %r127, %r124, %r126;
+shr.s32 %r128, %r127, 5;
+add.s32 %r129, %r128, %r3;
+mul.wide.s32 %rd30, %r129, 4;
+add.s64 %rd31, %rd2, %rd30;
+wmma.load.a.sync.aligned.row.m8n8k128.global.b1 {%r130}, [%rd31], %r38;
+add.s32 %r131, %r4, %r128;
+mul.wide.s32 %rd32, %r131, 4;
+add.s64 %rd33, %rd1, %rd32;
+wmma.load.b.sync.aligned.col.m8n8k128.global.b1 {%r132}, [%rd33], %r37;
+wmma.mma.xor.popc.sync.aligned.row.col.m8n8k128.s32.b1.b1.s32 {%r138, %r139}, {%r130}, {%r132}, {%r122, %r123};
+
+BB0_18:
+add.s32 %r150, %r150, 512;
+setp.lt.s32	%p9, %r150, %r38;
+@%p9 bra BB0_16;
+
+BB0_19:
+@!%p1 bra BB0_21;
+bra.uni BB0_20;
+
+BB0_20:
+cvta.to.global.u64 %rd34, %rd3;
+mad.lo.s32 %r133, %r1, %r37, %r2;
+mul.wide.s32 %rd35, %r133, 4;
+add.s64 %rd36, %rd34, %rd35;
+wmma.load.c.sync.aligned.row.m8n8k128.global.s32 {%r134, %r135}, [%rd36], %r37;
+add.s32 %r136, %r134, %r138;
+add.s32 %r137, %r135, %r139;
+wmma.store.d.sync.aligned.row.m8n8k128.global.s32 [%rd36], {%r136, %r137}, %r37;
+
+BB0_21:
+ret;
+}
+
+
+.visible .entry _Z9set_valuePjii(
+.param .u64 _Z9set_valuePjii_param_0,
+.param .u32 _Z9set_valuePjii_param_1,
+.param .u32 _Z9set_valuePjii_param_2
+)
+{
+.reg .pred %p<3>;
+.reg .b32 %r<12>;
+.reg .b64 %rd<5>;
+
+
+ld.param.u64 %rd1, [_Z9set_valuePjii_param_0];
+ld.param.u32 %r3, [_Z9set_valuePjii_param_1];
+ld.param.u32 %r2, [_Z9set_valuePjii_param_2];
+mov.u32 %r4, %ntid.x;
+mov.u32 %r5, %ctaid.x;
+mov.u32 %r6, %tid.x;
+mad.lo.s32 %r1, %r5, %r4, %r6;
+shr.s32 %r7, %r3, 31;
+shr.u32 %r8, %r7, 27;
+add.s32 %r9, %r3, %r8;
+shr.s32 %r10, %r9, 5;
+setp.ge.s32	%p1, %r1, %r10;
+@%p1 bra BB1_2;
+
+cvta.to.global.u64 %rd2, %rd1;
+setp.eq.s32	%p2, %r2, 0;
+selp.b32	%r11, -1, 0, %p2;
+mul.wide.s32 %rd3, %r1, 4;
+add.s64 %rd4, %rd2, %rd3;
+st.global.u32 [%rd4], %r11;
+
+BB1_2:
+ret;
+}
+
+
+.visible .entry _Z9set_valuePii(
+.param .u64 _Z9set_valuePii_param_0,
+.param .u32 _Z9set_valuePii_param_1
+)
+{
+.reg .pred %p<2>;
+.reg .b32 %r<7>;
+.reg .b64 %rd<5>;
+
+
+ld.param.u64 %rd1, [_Z9set_valuePii_param_0];
+ld.param.u32 %r2, [_Z9set_valuePii_param_1];
+mov.u32 %r3, %ntid.x;
+mov.u32 %r4, %ctaid.x;
+mov.u32 %r5, %tid.x;
+mad.lo.s32 %r1, %r4, %r3, %r5;
+setp.ge.s32	%p1, %r1, %r2;
+@%p1 bra BB2_2;
+
+cvta.to.global.u64 %rd2, %rd1;
+mul.wide.s32 %rd3, %r1, 4;
+add.s64 %rd4, %rd2, %rd3;
+mov.u32 %r6, 1;
+st.global.u32 [%rd4], %r6;
+
+BB2_2:
+ret;
+}
+
+
