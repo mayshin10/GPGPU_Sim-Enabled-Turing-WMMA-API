@@ -1,0 +1,60 @@
+# DO NOT DELETE
+
+cuobjdumpInst.o: cuobjdumpInst.h /usr/include/string.h
+cuobjdumpInst.o: /usr/include/features.h /usr/include/stdc-predef.h
+cuobjdumpInst.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+cuobjdumpInst.o: /usr/include/gnu/stubs.h /usr/include/xlocale.h
+cuobjdumpInst.o: /usr/include/stdio.h /usr/include/bits/types.h
+cuobjdumpInst.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+cuobjdumpInst.o: /usr/include/_G_config.h /usr/include/wchar.h
+cuobjdumpInst.o: /usr/include/bits/stdio_lim.h
+cuobjdumpInst.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+cuobjdumpInst.o: /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h
+cuobjdumpInst.o: /usr/include/endian.h /usr/include/bits/endian.h
+cuobjdumpInst.o: /usr/include/bits/byteswap.h /usr/include/bits/byteswap-16.h
+cuobjdumpInst.o: /usr/include/sys/types.h /usr/include/time.h
+cuobjdumpInst.o: /usr/include/sys/select.h /usr/include/bits/select.h
+cuobjdumpInst.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+cuobjdumpInst.o: /usr/include/sys/sysmacros.h
+cuobjdumpInst.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+cuobjdumpInst.o: /usr/include/bits/stdlib-float.h
+cuobjdumpInstList.o: cuobjdumpInstList.h cuobjdumpInst.h
+cuobjdumpInstList.o: /usr/include/string.h /usr/include/features.h
+cuobjdumpInstList.o: /usr/include/stdc-predef.h /usr/include/sys/cdefs.h
+cuobjdumpInstList.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+cuobjdumpInstList.o: /usr/include/xlocale.h /usr/include/stdio.h
+cuobjdumpInstList.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+cuobjdumpInstList.o: /usr/include/libio.h /usr/include/_G_config.h
+cuobjdumpInstList.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+cuobjdumpInstList.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+cuobjdumpInstList.o: /usr/include/bits/waitflags.h
+cuobjdumpInstList.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+cuobjdumpInstList.o: /usr/include/bits/endian.h /usr/include/bits/byteswap.h
+cuobjdumpInstList.o: /usr/include/bits/byteswap-16.h /usr/include/sys/types.h
+cuobjdumpInstList.o: /usr/include/time.h /usr/include/sys/select.h
+cuobjdumpInstList.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+cuobjdumpInstList.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+cuobjdumpInstList.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+cuobjdumpInstList.o: /usr/include/bits/stdlib-float.h
+cuobjdump_to_ptxplus.o: /usr/include/stdio.h /usr/include/features.h
+cuobjdump_to_ptxplus.o: /usr/include/stdc-predef.h /usr/include/sys/cdefs.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/types.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/typesizes.h /usr/include/libio.h
+cuobjdump_to_ptxplus.o: /usr/include/_G_config.h /usr/include/wchar.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/stdio_lim.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/sys_errlist.h cuobjdumpInstList.h
+cuobjdump_to_ptxplus.o: cuobjdumpInst.h /usr/include/string.h
+cuobjdump_to_ptxplus.o: /usr/include/xlocale.h /usr/include/stdlib.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/waitflags.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/waitstatus.h /usr/include/endian.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/endian.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/byteswap.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/byteswap-16.h
+cuobjdump_to_ptxplus.o: /usr/include/sys/types.h /usr/include/time.h
+cuobjdump_to_ptxplus.o: /usr/include/sys/select.h /usr/include/bits/select.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/sigset.h /usr/include/bits/time.h
+cuobjdump_to_ptxplus.o: /usr/include/sys/sysmacros.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/pthreadtypes.h
+cuobjdump_to_ptxplus.o: /usr/include/alloca.h
+cuobjdump_to_ptxplus.o: /usr/include/bits/stdlib-float.h
