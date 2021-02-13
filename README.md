@@ -1,7 +1,5 @@
-This is the redistribution of GPGPU-Sim by the tor aamodt in UBC research team.
+The current(2020.12) GPGPU-Sim supports up to the 1st Gen NVIDIA tensor core. 
 
-You can find the orinal programs in here, https://github.com/gpgpu-sim/gpgpu-sim_distribution.
+This distribution includes the simulator that supports up to the 2nd Gen tensor core(Turing arch).
 
-I have contributed to adding new functions, Turing tensor core WMMA API.
-
-If the problem occurs, contact me email, "mayshin10@naver.com"
+It is also my Undergraduate graduation thesis, Yonsei Univ, Korea. 
