@@ -26,8 +26,9 @@
    2. ```$ make```
    3. See results in the log file <br><br>
 # GPGPU-Sim benchmarking
-   1. build GPGPU-Sim(check its version of CUDA is 10 or higher)
-   2. Set the matrix size at  ```test.cu``` inside sim directory.
+   0. build GPGPU-Sim(check its version of CUDA is 10 or higher)
+   1. Set the matrix size at  ```test.cu``` inside sim directory.
+   2. ```$ make```
    3. See the result shown by simulator.<br><br>
 
 # Result
