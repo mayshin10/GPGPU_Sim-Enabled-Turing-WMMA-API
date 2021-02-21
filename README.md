@@ -33,6 +33,6 @@
 
 # Results
 * ### Proposed 2nd Gen tensor core architecture <br>
-<img src="proposed_arch.png" width="400px" align="center" > </img><br><br><br><br>
+<img src="proposed_arch.png" width="400px" align="center" > </img><br><br>
 * ### Benchmark results <br>
 <img src="benchmark_results.png" border="100px" align="center" > </img><br><br><br><br>
