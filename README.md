@@ -31,7 +31,6 @@
    2. ```$ make```
    3. See the result shown by simulator.<br><br>
 
-# Result
-<img src="benchmark_results.png" border="100px" align="center" > </img><br><br><br><br>
+# Results
 <img src="proposed_arch.png" width="400px" align="center" > </img><br><br><br><br>
-<img>
+<img src="benchmark_results.png" border="100px" align="center" > </img><br><br><br><br>
