@@ -32,7 +32,6 @@
    3. See the result shown by simulator.<br><br>
 
 # Results
-* ### Proposed 2nd Gen tensor core architecture <br>
-<p align="center"><img src="proposed_arch.png" width = "500px"></p><br><br>
+* ### Proposed 2nd Gen tensor core architecture <br><br><p align="center"><img src="proposed_arch.png" width = "500px"></p><br>
 * ### Benchmark results <br>
 <img src="benchmark_results.png" border="100px" align="center" > </img><br><br><br><br>
