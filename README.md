@@ -4,30 +4,30 @@
 
 
 # Repository Structure
-* gpgpu-sim
+* ```gpgpu-sim```
    * GPGPU-Sim enalbed Turing WMMA API
-* Benchmark<br>
+* ```Benchmark```
    * b1(1-bit)
    * u4(unsigned 4-bit)
    * u8(unsigned 8-bit)
    * fp16(floating point 16-bit)
    * mixed(mixed precision)
-* Paper
+* ```Paper```
    * Thesis paper<br><br>
 
 # Recommended environment for running benchmark
-   * GPGPU-Sim 4.0(refer to https://github.com/gpgpu-sim/gpgpu-sim_distribution)
-   * CUDA 10 or higher
-   * NVIDIA graphic card with sm_75 or higher(after Volta arch.)<br><br>
+   * ```GPGPU-Sim 4.0``` (refer to https://github.com/gpgpu-sim/gpgpu-sim_distribution)
+   * ```CUDA 10``` or higher
+   * NVIDIA graphic card with ```sm_75``` or higher(after Volta arch.)<br><br>
    
 # Hardware benchmarking
    0. Go to the directory you want to benchmark.
    1. Set the matrix size at ```test.cu``` inside hard directory.
    2. ```$ make```
-   3. See results in the log file<br><br>
+   3. See results in the log file <br><br>
 # GPGPU-Sim benchmarking
    1. build GPGPU-Sim(check its version of CUDA is 10 or higher)
-   2. ```Set the matrix size at  ```test.cu``` inside sim directory.
+   2. Set the matrix size at  ```test.cu``` inside sim directory.
    3. See the result shown by simulator.<br><br>
 
 # Result
