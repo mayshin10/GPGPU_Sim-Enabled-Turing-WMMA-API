@@ -32,4 +32,6 @@
    3. See the result shown by simulator.<br><br>
 
 # Result
+<img src="benchmark_results.png" border="100px" align="center" > </img><br><br><br><br>
+<img src="proposed_arch.png" border="100px" align="center" > </img><br><br><br><br>
 <img>
